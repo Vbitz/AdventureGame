@@ -53,6 +53,7 @@
     <Compile Include="Managers\ResourceManager.cs" />
     <Compile Include="NativeWindow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Render\ExposeImage.cs" />
     <Compile Include="Render\Graphics.cs" />
   </ItemGroup>
   <ItemGroup>

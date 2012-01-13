@@ -11,7 +11,11 @@ namespace AdventureGame.Tier2
 {
     class RegistryImage : RegistryItem
     {
+        public RegistryImage(string name, RegistryItem parent)
+            : base(name, parent)
+        {
 
+        }
 
         public override object GetValue()
         {

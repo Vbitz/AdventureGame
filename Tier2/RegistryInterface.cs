@@ -13,5 +13,24 @@ namespace AdventureGame.Tier2
         {
             RegistryManager.CallMethod(name);
         }
+
+        public static string GetString(string name)
+        {
+            RegistryItem search = RegistryManager.GetItem(name);
+            if (search is RegistryString)
+            {
+                return (string)search.GetValue();
+            }
+            return "";
+        }
+
+        public static void SetString(string name, string value)
+        {
+            RegistryItem item = RegistryManager.GetItem(name);
+            if (item is RegistryString)
+            {
+                item.SetValue(value);
+            }
+        }
     }
 }
