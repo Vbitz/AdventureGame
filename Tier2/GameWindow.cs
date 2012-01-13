@@ -12,15 +12,34 @@ namespace AdventureGame.Tier2
 {
     class Tier2NativeWindow : NativeWindow
     {
+        Dictionary<Keys, FunctionKey> FKeys = new Dictionary<Keys, FunctionKey>();
+
         public Tier2NativeWindow(int width, int height)
             : base(width, height)
         {
-
+            FKeys.Add(Keys.F1, FunctionKey.F1);
+            FKeys.Add(Keys.F2, FunctionKey.F2);
+            FKeys.Add(Keys.F3, FunctionKey.F3);
+            FKeys.Add(Keys.F4, FunctionKey.F4);
+            FKeys.Add(Keys.F5, FunctionKey.F5);
+            FKeys.Add(Keys.F6, FunctionKey.F6);
+            FKeys.Add(Keys.F7, FunctionKey.F7);
+            FKeys.Add(Keys.F8, FunctionKey.F8);
+            FKeys.Add(Keys.F9, FunctionKey.F9);
+            FKeys.Add(Keys.F10, FunctionKey.F10);
+            FKeys.Add(Keys.F11, FunctionKey.F11);
+            FKeys.Add(Keys.F12, FunctionKey.F12);
         }
 
         public override void Draw()
         {
-            Console.WriteLine("Drawing");
+            foreach (Keys item in InputManager.KeysPressed)
+            {
+                if (FKeys.ContainsKey(item))
+                {
+                    FunctionHooks.KeyPressed(FKeys[item]);
+                }
+            }
         }
     }
 

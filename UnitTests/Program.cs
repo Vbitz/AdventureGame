@@ -18,7 +18,7 @@ namespace AdventureGame.Samples.UnitTest
 
         public void ExitApp()
         {
-            
+            RegistryInterface.CallMethod("Renderer\\Exit");
         }
 
         static void Main(string[] args)

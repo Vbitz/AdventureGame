@@ -7,9 +7,9 @@ using AdventureGame.Registry;
 
 namespace AdventureGame.Tier2
 {
-    public class RegistryInterface
+    public static class RegistryInterface
     {
-        public void CallMethod(string name)
+        public static void CallMethod(string name)
         {
             RegistryManager.CallMethod(name);
         }

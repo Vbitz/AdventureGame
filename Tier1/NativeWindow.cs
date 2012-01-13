@@ -20,7 +20,6 @@ namespace AdventureGame.Tier1
         {
             this.RWindow = new RenderWindow(new VideoMode(800, 600), "Engine Window");
             this.RWindow.KeyPressed += new EventHandler<KeyEventArgs>(RWindow_KeyPressed);
-            this.RWindow.KeyReleased += new EventHandler<KeyEventArgs>(RWindow_KeyReleased);
             this.RWindow.Closed += new EventHandler(RWindow_Closed);
         }
 
@@ -29,14 +28,9 @@ namespace AdventureGame.Tier1
             this.Stop();
         }
 
-        void RWindow_KeyReleased(object sender, KeyEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         void RWindow_KeyPressed(object sender, KeyEventArgs e)
         {
-            throw new NotImplementedException();
+            InputManager.KeyPress(e.Code);
         }
 
         public void Run()
@@ -44,6 +38,8 @@ namespace AdventureGame.Tier1
             this.Running = true;
             while (this.Running)
             {
+                InputManager.NewFrame();
+
                 this.RWindow.DispatchEvents();
 
                 this.Draw();
