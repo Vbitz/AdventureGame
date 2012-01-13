@@ -16,6 +16,8 @@ namespace AdventureGame.Registry
 
         public RegistryItem Parent;
 
+        private List<RegistryItem> Children = new List<RegistryItem>();
+
         public RegistryItem(string name, RegistryItem parent)
         {
             this.Name = name;
@@ -35,6 +37,42 @@ namespace AdventureGame.Registry
         public virtual object GetValue()
         {
             return null;
+        }
+
+        public RegistryItem GetChild(string name)
+        {
+            if (!this.Directory)
+            {
+                return null;
+            }
+            foreach (RegistryItem item in this.Children)
+            {
+                if (item.Name == name)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        public void AddChild(RegistryItem item)
+        {
+            if (this.GetChild(item.Name) != null)
+            {
+                LogManager.Log("Registry", "Error", "Node: " + item.Name + " already exists");
+            }
+            else
+            {
+                this.Children.Add(item);
+            }
+        }
+
+        public RegistryItem AddDirectoryChild(string name)
+        {
+            RegistryItem newItem = new RegistryItem(name, this);
+            newItem.Directory = true;
+            this.AddChild(newItem);
+            return newItem;
         }
     }
 
@@ -100,7 +138,7 @@ namespace AdventureGame.Registry
             this.Value = new FileInfo(filename);
             if (!this.Value.Exists)
             {
-                LogManager.Log("Registry", "Warning", filename + " : Does not Exist");   
+                LogManager.Log("Registry", "Warning", filename + " : Does not Exist");
             }
         }
 
@@ -117,6 +155,19 @@ namespace AdventureGame.Registry
 
     public static class RegistryManager
     {
+        public static RegistryItem RootItem;
+        public static RegistryItem ConfigDir;
 
+        public static void InitRegistry()
+        {
+            RootItem = new RegistryItem("Root", null);
+            RootItem.Directory = true;
+            ConfigDir = RootItem.AddDirectoryChild("Config");
+        }
+
+        public static void CallMethod(string name)
+        {
+            string[] tokens = name.Split('\\');
+        }
     }
 }

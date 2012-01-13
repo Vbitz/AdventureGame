@@ -51,6 +51,11 @@ namespace AdventureGame.Tier1
             this.RWindow.Close();
         }
 
+        public virtual void Draw()
+        {
+
+        }
+
         public void Stop()
         {
             this.Running = false;
