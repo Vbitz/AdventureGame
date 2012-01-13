@@ -41,14 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EngineGlobals.cs" />
+    <Compile Include="Entitys\Entity.cs" />
+    <Compile Include="Entitys\EntityContainer.cs" />
+    <Compile Include="Entitys\RegistryEntity.cs" />
     <Compile Include="FunctionHooks.cs" />
     <Compile Include="GameWindow.cs" />
+    <Compile Include="Managers\RegistrySceneGraph.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistryExtentions.cs" />
     <Compile Include="RegistryInterface.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entitys\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Registry\Registry.csproj">
       <Project>{E3CDBFC6-055F-4F11-8361-AF0B6DB27252}</Project>
