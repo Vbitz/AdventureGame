@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using AdventureGame.Tier1;
+using AdventureGame.Tier1.Managers;
 
 namespace AdventureGame.Tier2
 {
@@ -17,6 +18,7 @@ namespace AdventureGame.Tier2
 
         public void Run()
         {
+            
             this.NWindow.Run();
         }
     }

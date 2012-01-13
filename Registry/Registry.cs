@@ -5,6 +5,8 @@ using System.Text;
 
 using System.IO;
 
+using AdventureGame.Tier1.Managers;
+
 namespace AdventureGame.Registry
 {
     public class RegistryItem
@@ -16,16 +18,16 @@ namespace AdventureGame.Registry
 
         public RegistryItem(string name, RegistryItem parent)
         {
-
+            this.Name = name;
+            this.Parent = parent;
         }
-
 
         public virtual void Access()
         {
 
         }
 
-        public virtual void SetValue()
+        public virtual void SetValue(object value)
         {
 
         }
@@ -60,9 +62,13 @@ namespace AdventureGame.Registry
             return this.Value;
         }
 
-        public override void SetValue()
+        public override void SetValue(object value)
         {
-            base.SetValue();
+            if (value is float | value is int | value is long)
+            {
+                this.Value = (float)value;
+                return;
+            }
         }
     }
 
@@ -91,7 +97,21 @@ namespace AdventureGame.Registry
         public RegistryFile(string name, RegistryItem parent, string filename)
             : base(name, parent)
         {
+            this.Value = new FileInfo(filename);
+            if (!this.Value.Exists)
+            {
+                LogManager.Log("Registry", "Warning", filename + " : Does not Exist");   
+            }
+        }
 
+        public string ReadAllAsString()
+        {
+            return File.ReadAllText(Value.FullName);
+        }
+
+        public byte[] ReadAllAsBytes()
+        {
+            return File.ReadAllBytes(this.Value.FullName);
         }
     }
 

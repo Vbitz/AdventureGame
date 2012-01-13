@@ -5,7 +5,8 @@ using System.Text;
 
 namespace AdventureGame.Tier1.Render
 {
-    class Graphics
+    public class Graphics
     {
+        
     }
 }

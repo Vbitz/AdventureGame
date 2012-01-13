@@ -47,6 +47,10 @@
     <Folder Include="Entitys\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Registry\Registry.csproj">
+      <Project>{E3CDBFC6-055F-4F11-8361-AF0B6DB27252}</Project>
+      <Name>Registry</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tier1\Tier1.csproj">
       <Project>{E014584E-5410-4070-A927-E6FE388517EC}</Project>
       <Name>Tier1</Name>
