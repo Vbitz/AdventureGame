@@ -13,7 +13,12 @@ namespace AdventureGame.Samples.UnitTest
         public Program()
             : base(800, 600)
         {
+            FunctionHooks.Register(FunctionKey.F2, new FunctionMethod(ExitApp));
+        }
 
+        public void ExitApp()
+        {
+            
         }
 
         static void Main(string[] args)

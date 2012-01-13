@@ -46,9 +46,10 @@ namespace AdventureGame.Tier1
             {
                 this.RWindow.DispatchEvents();
 
+                this.Draw();
+
                 this.RWindow.Display();
             }
-            this.RWindow.Close();
         }
 
         public virtual void Draw()

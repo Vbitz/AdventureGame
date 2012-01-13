@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EngineGlobals.cs" />
+    <Compile Include="FunctionHooks.cs" />
     <Compile Include="GameWindow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistryInterface.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entitys\" />

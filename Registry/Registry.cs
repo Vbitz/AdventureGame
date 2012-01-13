@@ -168,6 +168,14 @@ namespace AdventureGame.Registry
         public static void CallMethod(string name)
         {
             string[] tokens = name.Split('\\');
+            RegistryItem directory = RootItem;
+            for (int i = 0; i < tokens.Length -1; i++)
+            {
+                Console.WriteLine("Opening: " + name);
+                directory = directory.GetChild(tokens[i]);
+            }
+            Console.WriteLine("Calling: " + name);
+            directory.GetChild(tokens[tokens.Length - 1]).Access();
         }
     }
 }

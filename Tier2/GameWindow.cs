@@ -20,7 +20,7 @@ namespace AdventureGame.Tier2
 
         public override void Draw()
         {
-            RegistryManager.CallMethod("Renderer\\Exit");
+            Console.WriteLine("Drawing");
         }
     }
 
