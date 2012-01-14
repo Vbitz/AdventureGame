@@ -15,7 +15,14 @@ namespace AdventureGame.Samples.UnitTest
             : base(800, 600)
         {
             RegistrySceneGraph.Init();
-            RegistrySceneGraph.CreateEntity("Testing", "Test.png", 0, 0);
+            for (int x = 0; x < 10; x++)
+            {
+                for (int y = 0; y < 10; y++)
+                {
+                    Console.WriteLine(x * 70);
+                    RegistrySceneGraph.CreateEntity("Testing" + x.ToString() + y.ToString(), "Test.png", x*70, y*70);
+                }
+            }
             FunctionHooks.Register(FunctionKey.F2, new FunctionMethod(ExitApp));
         }
 

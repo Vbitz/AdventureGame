@@ -18,6 +18,10 @@ namespace AdventureGame.Tier1.Managers
 
         public static void LoadImage(string filename)
         {
+            if (Images.ContainsKey(filename))
+            {
+                return;
+            }
             LogManager.Log("ResourceManager", "Info", "Loading: " + Consts.BaseDirectory + filename);
             Images.Add(filename, new Image(Consts.BaseDirectory + filename));
         }

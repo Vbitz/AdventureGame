@@ -107,7 +107,7 @@ namespace AdventureGame.Registry
         public RegistryNumber(string name, RegistryItem parent, float value)
             : base(name, parent)
         {
-
+            this.Value = value;
         }
 
         public override object GetValue()

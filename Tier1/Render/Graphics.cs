@@ -27,6 +27,7 @@ namespace AdventureGame.Tier1.Render
             float y = (float)yloc;
 
             TemplateSprite.Image = img.Img;
+            TemplateSprite.Position = new Vector2(x, y);
 
             NativeWindow.Singiltion.RWindow.Draw(TemplateSprite);
         }
