@@ -32,5 +32,24 @@ namespace AdventureGame.Tier2
                 item.SetValue(value);
             }
         }
+
+        public static float GetNumber(string name)
+        {
+            RegistryItem search = RegistryManager.GetItem(name);
+            if (search is RegistryNumber)
+            {
+                return (float)search.GetValue();
+            }
+            return 0;
+        }
+
+        public static void SetNumber(string name, float value)
+        {
+            RegistryItem item = RegistryManager.GetItem(name);
+            if (item is RegistryNumber)
+            {
+                item.SetValue(value);
+            }
+        }
     }
 }

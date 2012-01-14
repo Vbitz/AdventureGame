@@ -35,6 +35,8 @@ namespace AdventureGame.Tier2
 
         public override void Draw()
         {
+            this.Clear(0, 0, 0);
+
             RegistrySceneGraph.DrawAll();
 
             foreach (Keys item in InputManager.KeysPressed)
@@ -43,6 +45,7 @@ namespace AdventureGame.Tier2
                 {
                     FunctionHooks.KeyPressed(FKeys[item]);
                 }
+                CameraManager.KeyPressed(item);
             }
         }
     }
@@ -55,6 +58,7 @@ namespace AdventureGame.Tier2
         public GameWindow(int width, int height)
         {
             EngineGlobals.Init();
+            CameraManager.Init();
             this.RendererItem = RegistryManager.RootItem.AddDirectoryChild("Renderer");
             this.RendererItem.AddChild(new RegistryMethod("Exit", this.RendererItem, new RegistryMethod.InvokeMethod(Exit)));
             this.NWindow = new Tier2NativeWindow(width, height);

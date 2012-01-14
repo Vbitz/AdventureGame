@@ -46,6 +46,7 @@
     <Compile Include="Entitys\RegistryEntity.cs" />
     <Compile Include="FunctionHooks.cs" />
     <Compile Include="GameWindow.cs" />
+    <Compile Include="Managers\CameraManager.cs" />
     <Compile Include="Managers\RegistrySceneGraph.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistryExtentions.cs" />

@@ -60,5 +60,10 @@ namespace AdventureGame.Tier1
         {
             this.Running = false;
         }
+
+        public void Clear(int r, int g, int b)
+        {
+            this.RWindow.Clear(new Color((byte)r, (byte)g, (byte)b));
+        }
     }
 }
