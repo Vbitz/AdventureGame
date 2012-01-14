@@ -12,15 +12,14 @@ namespace AdventureGame.Samples.UnitTest
     class Program : GameWindow
     {
         public Program()
-            : base(800, 600)
+            : base(1280, 800)
         {
             RegistrySceneGraph.Init();
-            for (int x = 0; x < 10; x++)
+            for (int x = 0; x < 40; x++)
             {
-                for (int y = 0; y < 10; y++)
+                for (int y = 0; y < 40; y++)
                 {
-                    Console.WriteLine(x * 70);
-                    RegistrySceneGraph.CreateEntity("Testing" + x.ToString() + y.ToString(), "Test.png", x*70, y*70);
+                    RegistrySceneGraph.CreateEntity("Testing" + x.ToString() + " " + y.ToString(), "Test.png", x*20, y*20);
                 }
             }
             FunctionHooks.Register(FunctionKey.F2, new FunctionMethod(ExitApp));
