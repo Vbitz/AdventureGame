@@ -24,7 +24,7 @@ namespace AdventureGame.Tier2.Managers
 
         internal static void SetSpeed(RegistryItem item)
         {
-            item
+            CameraSpeed = (int)(float)(item.GetChild("Speed").GetValue());
         }
 
         internal static void KeyPressed(Keys item)

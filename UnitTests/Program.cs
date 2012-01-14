@@ -23,11 +23,18 @@ namespace AdventureGame.Samples.UnitTest
                 }
             }
             FunctionHooks.Register(FunctionKey.F2, new FunctionMethod(ExitApp));
+            FunctionHooks.Register(FunctionKey.F3, new FunctionMethod(SetSpeed));
         }
 
         public void ExitApp()
         {
             RegistryInterface.CallMethod("Renderer\\Exit");
+        }
+
+        public void SetSpeed()
+        {
+            RegistryInterface.SetNumber("Camera\\Speed", 100);
+            RegistryInterface.CallMethod("Camera\\SetSpeed");
         }
 
         static void Main(string[] args)
