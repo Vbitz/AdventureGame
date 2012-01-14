@@ -16,12 +16,27 @@ namespace AdventureGame.Registry
 
         public RegistryItem Parent;
 
-        private List<RegistryItem> Children = new List<RegistryItem>();
+        public string FullPath = "";
+
+        internal List<RegistryItem> Children = new List<RegistryItem>();
 
         public RegistryItem(string name, RegistryItem parent)
         {
             this.Name = name;
             this.Parent = parent;
+
+            this.FullPath += this.Name + "\\";
+
+            if (this.Parent != null)
+            {
+                RegistryItem iterTmp = this.Parent;
+                while (iterTmp.Parent != null)
+                {
+                    this.FullPath += iterTmp.Name + "\\";
+
+                    iterTmp = iterTmp.Parent;
+                }
+            }
         }
 
         public virtual void Access()
@@ -168,18 +183,26 @@ namespace AdventureGame.Registry
         public static void CallMethod(string name)
         {
             string[] tokens = name.Split('\\');
-            GetItem(name).GetChild(tokens[tokens.Length - 1]).Access();
+            GetItem(name.Substring(0, name.LastIndexOf('\\'))).GetChild(tokens[tokens.Length - 1]).Access();
         }
 
         public static RegistryItem GetItem(string name)
         {
             string[] tokens = name.Split('\\');
             RegistryItem directory = RootItem;
-            for (int i = 0; i < tokens.Length - 1; i++)
+            for (int i = 0; i < tokens.Length; i++)
             {
                 directory = directory.GetChild(tokens[i]);
             }
             return directory;
+        }
+
+        public static void InvokeAll(string path, string methodName)
+        {
+            foreach (RegistryItem item in GetItem(path).Children)
+            {
+                item.GetChild(methodName).Access();
+            }
         }
     }
 }

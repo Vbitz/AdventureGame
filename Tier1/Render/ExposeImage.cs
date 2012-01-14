@@ -10,7 +10,7 @@ namespace AdventureGame.Tier1.Render
 {
     public class ExposeImage
     {
-        private Image Img;
+        internal Image Img;
 
         internal ExposeImage(Image img)
         {

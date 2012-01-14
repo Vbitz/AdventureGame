@@ -13,9 +13,9 @@ namespace AdventureGame.Tier1
 {
     public class NativeWindow
     {
-        internal NativeWindow Singiltion = null;
+        internal static NativeWindow Singiltion = null;
 
-        private RenderWindow RWindow;
+        internal RenderWindow RWindow;
         private bool Running = false;
 
         public NativeWindow(int width, int height)

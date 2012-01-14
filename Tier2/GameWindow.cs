@@ -6,6 +6,8 @@ using System.Text;
 using AdventureGame.Tier1;
 using AdventureGame.Tier1.Managers;
 
+using AdventureGame.Tier2.Managers;
+
 using AdventureGame.Registry;
 
 namespace AdventureGame.Tier2
@@ -33,6 +35,8 @@ namespace AdventureGame.Tier2
 
         public override void Draw()
         {
+            RegistrySceneGraph.DrawAll();
+
             foreach (Keys item in InputManager.KeysPressed)
             {
                 if (FKeys.ContainsKey(item))
